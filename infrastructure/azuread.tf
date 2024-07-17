@@ -10,7 +10,7 @@ resource "azurerm_role_assignment" "aks_rbac_cluster_admin" {
   scope                = azurerm_kubernetes_cluster.this.id
 }
 
-# Create AKS Azure AD writers group & assignment
+# Create AKS Azure AD writers group & assignment 
 resource "azuread_group" "aks_writer" {
   display_name     = "AKS Cluster Writers"
   security_enabled = true

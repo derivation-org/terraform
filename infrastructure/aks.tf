@@ -11,17 +11,18 @@ resource "azurerm_kubernetes_cluster" "this" {
 
   # creating the default node pool
   default_node_pool {
-    name                = var.node_name
-    node_count          = var.node_count
-    enable_auto_scaling = var.enable_auto_scaling
-    min_count           = var.enable_auto_scaling ? var.min_count : null
-    max_count           = var.enable_auto_scaling ? var.max_count : null
-    vm_size             = var.vm_size
-    os_sku              = "AzureLinux"
-    vnet_subnet_id      = azurerm_subnet.nodes.id
-    pod_subnet_id       = azurerm_subnet.pods.id
-    os_disk_type        = var.os_disk_type
-    os_disk_size_gb     = var.os_disk_size_gb
+    name                        = var.node_name
+    node_count                  = var.node_count
+    enable_auto_scaling         = var.enable_auto_scaling
+    min_count                   = var.enable_auto_scaling ? var.min_count : null
+    max_count                   = var.enable_auto_scaling ? var.max_count : null
+    vm_size                     = var.vm_size
+    os_sku                      = "AzureLinux"
+    vnet_subnet_id              = azurerm_subnet.nodes.id
+    pod_subnet_id               = azurerm_subnet.pods.id
+    os_disk_type                = var.os_disk_type
+    os_disk_size_gb             = var.os_disk_size_gb
+    temporary_name_for_rotation = "tempnodepool"
   }
 
   identity {

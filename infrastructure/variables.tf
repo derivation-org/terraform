@@ -73,32 +73,32 @@ variable "vm_size" {
 
 variable "min_count" {
   description = "Nodes minimum auto-scalling count"
-  type = number
+  type        = number
 }
 
 variable "max_count" {
   description = "Nodes maximum autos-calling count"
-  type = number
+  type        = number
 }
 
 variable "enable_auto_scaling" {
   description = "to enable auto-scalling"
-  type = bool
+  type        = bool
 }
 
 variable "os_disk_size_gb" {
   description = "The size of the node disk"
-  type = number
-  default = 32
+  type        = number
+  default     = 32
 }
 variable "os_disk_type" {
   default = "Managed"
-  type = string
+  type    = string
 }
 
 variable "sku_tier" {
   description = "The AKS pricing tier"
-  default = "free"
+  default     = "free"
 }
 
 # acr variables
@@ -110,13 +110,13 @@ variable "acr_name" {
 
 variable "acr_sku" {
   description = "The sku of the azure container registry"
-  type = string
-  default = "Basic"
+  type        = string
+  default     = "Basic"
 }
 
 # Grafana variables
 variable "grafana_sku" {
   description = "The sku for the grafana instance"
-  type = string
-  default = "Essential"
+  type        = string
+  default     = "Essential"
 }

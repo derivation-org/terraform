@@ -17,7 +17,7 @@ locals {
     node_count          = 1
     node_name           = "agents"
     vm_size             = "Standard_D2pls_v5"
-    # os_disk_size_gb     = 150
+    os_disk_size_gb     = 150
     enable_auto_scaling = false
     min_count           = 1 # only apply when auto-scalling = true
     max_count           = 2 # only apply when auto-scalling = true

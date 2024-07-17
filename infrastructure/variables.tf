@@ -89,7 +89,7 @@ variable "enable_auto_scaling" {
 variable "os_disk_size_gb" {
   description = "The size of the node disk"
   type        = number
-  default     = 32
+  default     = 120
 }
 variable "os_disk_type" {
   default = "Managed"

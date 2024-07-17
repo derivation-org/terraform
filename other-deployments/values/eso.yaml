@@ -1,0 +1,62 @@
+replicaCount: 1
+image:
+  repository: "ghcr.io/external-secrets/external-secrets"
+  pullPolicy: IfNotPresent 
+# -- If set, install and upgrade CRDs through helm chart.
+installCRDs: true
+crds:
+  # -- If true, create CRDs for Cluster External Secret.
+  createClusterExternalSecret: true
+  # -- If true, create CRDs for Cluster Secret Store.
+  createClusterSecretStore: true
+  # -- If true, create CRDs for Push Secret.
+  createPushSecret: true
+  annotations: {}
+  conversion:
+    enabled: true
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automounts the service account token in all containers of the pod
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: 
+    azure.workload.identity/client-id: ${user_assigned_identity_client_id}
+    azure.workload.identity/tenant-id: ${azure_tenant_id}
+podLabels:
+  azure.workload.identity/use: "true"
+webhook:
+  # -- Specifies whether a webhook deployment be created.
+  create: true
+  replicaCount: 1
+  image:
+    repository: "ghcr.io/external-secrets/external-secrets"
+    pullPolicy: IfNotPresent
+  serviceAccount:
+    # -- Specifies whether a service account should be created.
+    create: true
+    # -- Automounts the service account token in all containers of the pod
+    automount: true
+    # -- Annotations to add to the service account.
+    annotations: 
+      azure.workload.identity/client-id: ${user_assigned_identity_client_id}
+      azure.workload.identity/tenant-id: ${azure_tenant_id}
+  podLabels:
+    azure.workload.identity/use: "true"
+certController:
+  # -- Specifies whether a certificate controller deployment be created.
+  create: true
+  image:
+    repository: "ghcr.io/external-secrets/external-secrets"
+    pullPolicy: IfNotPresent
+  serviceAccount:
+    # -- Specifies whether a service account should be created.
+    create: true
+    # -- Automounts the service account token in all containers of the pod
+    automount: true
+    # -- Annotations to add to the service account.
+    annotations: 
+      azure.workload.identity/client-id: ${user_assigned_identity_client_id}
+      azure.workload.identity/tenant-id: ${azure_tenant_id}
+  podLabels:
+    azure.workload.identity/use: "true"

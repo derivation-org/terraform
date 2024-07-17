@@ -18,7 +18,7 @@ locals {
     node_name           = "node0"
     vm_size             = "Standard_D2pls_v5"
     os_disk_size_gb     = 30
-    enable_auto_scaling = false
+    enable_auto_scaling = true
     min_count           = 1 # only apply when auto-scalling = true
     max_count           = 2 # only apply when auto-scalling = true
   }

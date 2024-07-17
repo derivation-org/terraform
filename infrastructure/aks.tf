@@ -22,7 +22,6 @@ resource "azurerm_kubernetes_cluster" "this" {
     pod_subnet_id               = azurerm_subnet.pods.id
     os_disk_type                = var.os_disk_type
     os_disk_size_gb             = var.os_disk_size_gb
-    # temporary_name_for_rotation = "tempnodepool"
   }
 
   identity {

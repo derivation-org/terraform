@@ -37,5 +37,3 @@ Streamlined AKS deployment using Terraform, integrating advanced networking, sec
 For the application code and CI/CD pipeline implementation, please refer to the dedicated repository:
 
 [App and CI/CD Repository](https://github.com/derivation-org/custom-app)
-
-This repository contains our application code and CI/CD pipeline. GitHub Actions automate building and pushing Docker images to Azure Container Registry, and updating Kubernetes manifests. ArgoCD monitors these changes, automatically deploying updates to our AKS cluster for swift and consistent deployments.

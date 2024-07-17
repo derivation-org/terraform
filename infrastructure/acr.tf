@@ -17,7 +17,7 @@ resource "azurerm_role_assignment" "aks_acr_pull" {
 
 # Random string for unique naming
 resource "random_string" "suffix" {
-  length  = 20
+  length  = 12
   special = false
   upper   = false
 }

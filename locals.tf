@@ -15,7 +15,7 @@ locals {
     sku_tier            = "Free"
     kubernetes_version  = "1.29"
     node_count          = 1
-    node_name           = "node0"
+    node_name           = "agents"
     vm_size             = "Standard_D2pls_v5"
     os_disk_size_gb     = 150
     enable_auto_scaling = false

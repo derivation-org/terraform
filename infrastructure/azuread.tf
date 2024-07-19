@@ -9,7 +9,7 @@ resource "azurerm_role_assignment" "aks_rbac_cluster_admin" {
   role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
   scope                = azurerm_kubernetes_cluster.this.id
 }
-
+ 
 # Create AKS Azure AD writers group & assignment 
 resource "azuread_group" "aks_writer" {
   display_name     = "AKS Cluster Writers"

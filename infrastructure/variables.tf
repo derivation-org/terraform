@@ -77,7 +77,7 @@ variable "min_count" {
 }
 
 variable "max_count" {
-  description = "Nodes maximum autos-calling count"
+  description = "Nodes maximum auto-scalling count"
   type        = number
 }
 

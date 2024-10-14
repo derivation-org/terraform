@@ -13,7 +13,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   default_node_pool {
     name                        = var.node_name
     node_count                  = var.node_count
-    enable_auto_scaling         = var.enable_auto_scaling
+    # enable_auto_scaling         = var.enable_auto_scaling
     min_count                   = var.enable_auto_scaling ? var.min_count : null
     max_count                   = var.enable_auto_scaling ? var.max_count : null
     vm_size                     = var.vm_size
@@ -37,7 +37,7 @@ resource "azurerm_kubernetes_cluster" "this" {
 
   # enabling azuread rbac
   azure_active_directory_role_based_access_control {
-    managed                = true
+    # managed                = true
     azure_rbac_enabled     = true
     admin_group_object_ids = [azuread_group.aks_admins.object_id]
   }

@@ -65,6 +65,7 @@ resource "azurerm_dashboard_grafana" "this" {
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   sku                 = var.grafana_sku
+  grafana_major_version = 10
 
   identity {
     type = "SystemAssigned"

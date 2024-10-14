@@ -7,8 +7,6 @@ provider "azurerm" {
     }
   }
   
-  skip_provider_registration = true # Skips automatic Azure provider registration
-
   client_id       = var.client_id
   client_secret   = var.client_secret
   tenant_id       = var.tenant_id
@@ -35,12 +33,12 @@ terraform {
   }
 
 # Workspaces
-  cloud {
-    organization = "derivation"
-    workspaces {
-      name = "workspace-a"
-    }
-  }
+  # cloud {
+  #   organization = "derivation"
+  #   workspaces {
+  #     name = "workspace-a"
+  #   }
+  # }
 
   required_version = ">= 1.0.0"
 }

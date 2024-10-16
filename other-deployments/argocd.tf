@@ -28,7 +28,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: argocd.${var.domain_name}
+    - host: argocd1.${var.domain_name}
       http:
         paths:
           - path: /

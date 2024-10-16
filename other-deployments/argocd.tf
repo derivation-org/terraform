@@ -40,7 +40,7 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - argocd.${var.domain_name}
+        - argocd1.${var.domain_name}
       secretName: argocd-ssl-secret      
 YAML
 

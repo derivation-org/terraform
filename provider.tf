@@ -33,12 +33,12 @@ terraform {
   }
 
 # Workspaces
-  # cloud {
-  #   organization = "derivation"
-  #   workspaces {
-  #     name = "workspace-a"
-  #   }
-  # }
+  cloud {
+    organization = "derivation"
+    workspaces {
+      name = "prod-workspace"
+    }
+  }
 
   required_version = ">= 1.0.0"
 }

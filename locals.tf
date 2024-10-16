@@ -15,19 +15,19 @@ locals {
     sku_tier            = "Free"
     kubernetes_version  = "1.29"
     node_name           = "agents"
-    vm_size             = "Standard_D2pls_v5"
+    vm_size             = "Standard_D2as_v4"
     os_disk_size_gb     = 150
     enable_auto_scaling = false
-    node_count          = 1
-    min_count           = 1 # only apply when auto-scalling = true
-    max_count           = 2 # only apply when auto-scalling = true
+    node_count          = 2 # only takes effect when auto-scalling = false
+    min_count           = 1 # only takes effect when auto-scalling = true
+    max_count           = 2 # only takes effect when auto-scalling = true
   }
 
   # DNS Config
   dns_config = {
     domain_name             = "derivation.space"
     dns_resource_group_name = "dns-zone-rg"
-    cert_manager_email      = "belalelgebaly4@email.com"
+    cert_manager_email      = "example@email.com"
   }
 
   # External secrets operator config

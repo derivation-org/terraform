@@ -28,7 +28,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: argocd1.${var.domain_name}
+    - host: argocd.${var.domain_name}
       http:
         paths:
           - path: /
@@ -40,7 +40,7 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - argocd1.${var.domain_name}
+        - argocd.${var.domain_name}
       secretName: argocd-ssl-secret      
 YAML
 

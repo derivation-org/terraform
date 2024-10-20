@@ -36,7 +36,7 @@ terraform {
   cloud {
     organization = "derivation"
     workspaces {
-      name = "prod-workspace"
+      name = "dev-workspace"
     }
   }
 

@@ -33,7 +33,7 @@ resource "helm_release" "external_dns" {
   name             = "external-dns"
   repository       = "https://charts.bitnami.com/bitnami"
   chart            = "external-dns"
-  version          = "6.28.5"  # Adding specific version to prevent download issues
+  version          = "6.28.5"
   create_namespace = true
   namespace        = "external-dns"
 
@@ -48,13 +48,9 @@ resource "helm_release" "external_dns" {
   }
 
   set {
-    name  = "commonLabels.azure\\.workload\\.identity/use"
-    value = "true"
-  }
-
-  set {
     name  = "serviceAccount.create"
     value = "true"
+    type  = "string"
   }
 
   set {
@@ -68,8 +64,15 @@ resource "helm_release" "external_dns" {
   }
 
   set {
+    name  = "commonLabels.azure\\.workload\\.identity/use"
+    value = "true"
+    type  = "string"
+  }
+
+  set {
     name  = "serviceAccount.labels.azure\\.workload\\.identity/use"
     value = "true"
+    type  = "string"
   }
 
   set {
@@ -90,5 +93,6 @@ resource "helm_release" "external_dns" {
   set {
     name  = "azure.useWorkloadIdentityExtension"
     value = "true"
+    type  = "string"
   }
 }

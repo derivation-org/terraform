@@ -33,15 +33,62 @@ resource "helm_release" "external_dns" {
   name             = "external-dns"
   repository       = "https://charts.bitnami.com/bitnami"
   chart            = "external-dns"
+  version          = "6.28.5"  # Adding specific version to prevent download issues
   create_namespace = true
   namespace        = "external-dns"
 
-  values = [
-    templatefile("${abspath(path.root)}/other-deployments/values/dns.yaml", {
-      azure_subscription_id  = data.azurerm_subscription.current.subscription_id
-      azure_tenant_id        = data.azurerm_subscription.current.tenant_id
-      external_dns_client_id = azurerm_user_assigned_identity.aks_dns_identity.client_id
-      azure_resource_group   = var.dns_resource_group_name
-    })
-  ]
+  set {
+    name  = "provider"
+    value = "azure"
+  }
+
+  set {
+    name  = "policy"
+    value = "sync"
+  }
+
+  set {
+    name  = "commonLabels.azure\\.workload\\.identity/use"
+    value = "true"
+  }
+
+  set {
+    name  = "serviceAccount.create"
+    value = "true"
+  }
+
+  set {
+    name  = "serviceAccount.name"
+    value = "external-dns"
+  }
+
+  set {
+    name  = "serviceAccount.annotations.azure\\.workload\\.identity/client-id"
+    value = azurerm_user_assigned_identity.aks_dns_identity.client_id
+  }
+
+  set {
+    name  = "serviceAccount.labels.azure\\.workload\\.identity/use"
+    value = "true"
+  }
+
+  set {
+    name  = "azure.subscriptionId"
+    value = data.azurerm_subscription.current.subscription_id
+  }
+
+  set {
+    name  = "azure.tenantId"
+    value = data.azurerm_subscription.current.tenant_id
+  }
+
+  set {
+    name  = "azure.resourceGroup"
+    value = var.dns_resource_group_name
+  }
+
+  set {
+    name  = "azure.useWorkloadIdentityExtension"
+    value = "true"
+  }
 }
